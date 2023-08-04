@@ -88,7 +88,10 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
+}
+ul > a {
+	text-decoration: none;
+	color: black;
 }
 nav li {
 	padding: 0 10px;
@@ -125,6 +128,38 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+.categorie {
+display: flex;
+flex-wrap: nowrap;
+flex-direction: row;
+justify-content: center;
+}
+.categorie > li{
+	width: 178px;
+height: 19px;
+border-radius:0px 25px 0px 25px ;
+color: #1D6154;
+background-color: #fff ;
+font-family: Syne;
+font-size: 16px;
+font-weight: 700;
+line-height: 19px;
+letter-spacing: 0em;
+text-align: center;
+border-color: #1D6154;
+
+}
+.categorie .filtre{
+	border:solid 2px #1D6154 ;
+	border-radius: 50px 50px ;
+	padding: 10px ;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+.filtre:hover{
+	background-color: #1D6154;
+	color: #fff;
+}
 .gallery {
 	width: 100%;
 	display: grid;
@@ -136,6 +171,16 @@ li:hover {
 .gallery img {
 	width: 100%;
 
+}
+.gallery .title_img{
+	font-family: Work Sans;
+font-size: 15px;
+font-weight: 400;
+line-height: 15px;
+letter-spacing: 0em;
+text-align: left;
+color: #3D3D3D;
+padding-top: 5px;
 }
 #contact {
 	width: 50%;
