@@ -1,6 +1,4 @@
 
-
-
 function getArticles() {
 
     const filterButtonElement = document.createElement('li');
@@ -32,7 +30,7 @@ function getArticles() {
                     const categoryId = parseInt(event.target.dataset.id);
                     //console.log('Category id of event', categoryId);
 
-                    Array.from(document.querySelectorAll('figure')).forEach(element => {
+                    Array.from(document.querySelectorAll('div.gallery > figure')).forEach(element => {
                         const elementCategoryId = parseInt(element.dataset.id);
                         //console.log('Figure Element', elementCategoryId);
                         if(categoryId === 0){
@@ -50,8 +48,6 @@ function getArticles() {
     });
 };
     
-
-
 
 
 getArticles();
