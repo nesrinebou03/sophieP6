@@ -21,10 +21,11 @@ function getArticles () {
               figureElement.appendChild(ImgDiv);
               ImgDiv.classList.add("travaux__img");
 
-              const imageElement = document.createElement("img");
+              const imageElement = document.createElement("img");        
               ImgDiv.appendChild(imageElement);
               imageElement.src =  resultatAPI [article].imageUrl;
-      
+              imageElement.alt = ("Photo de ") + resultatAPI[article].title;
+              
               const imageFigcaption = document.createElement("figcaption");
               figureElement.appendChild(imageFigcaption);
               imageFigcaption.classList.add("title_img");
@@ -32,9 +33,12 @@ function getArticles () {
        
            } }) };
 
-
-
                 
+ let token = localStorage.getItem("token");
+  localStorage.removeItem("id");
 
-
+if (localStorage.getItem("token")) {
+  let tableauId = [];
+  document.getElementById("login").innerText = "logout";  
+};
 

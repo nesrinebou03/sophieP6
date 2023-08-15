@@ -13,10 +13,10 @@
 </head>
 <body>
 <header>
-	<a href="index.html"><h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1></a>
+	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
     <nav>
 		<ul>
-			<li>projets</li>
+			<a href="index.html"><li>projets</li></a>
 			<li>contact</li>
 	        <li class="gras"> login </li> 
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
@@ -34,16 +34,12 @@
 		<form id="myform">	
 
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email" placeholder="sophie.bluel@test.tld"
-				value="sophie.bluel@test.tld" required >
-				<p class="emailError"></p>
-
+				<input type="email" name="email" id="email" required placeholder="sophie.bluel@test.tld" >
+				<p class="emailError"></p>			
 				<label for="password">Mot de passe</label>
 				<input type="password" name="password" id="password" value="S0phie" required>
 				<p class="passwordError"></p>
-
 				<input type="submit" value="se connecter">
-
 				<label class="forget"> <a href="#">Mot de passe oublié </a></label>
 			</form>
 		</div>

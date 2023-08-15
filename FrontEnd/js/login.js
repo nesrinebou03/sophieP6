@@ -10,6 +10,8 @@ const User ={
     email:"",
     password:"",
 };
+
+//evenement
 // submit
 myForm.addEventListener("submit",(e) => {
     e.preventDefault();
@@ -55,6 +57,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       } else if (data.error) {
         passwordError.textContent = "mot de passe oublié!";
       } else {
+        
         localStorage.setItem("token", data.token);
         window.location.href = "index.html";
       }
