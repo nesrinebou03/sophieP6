@@ -1,6 +1,5 @@
-
+//filtrer les travaux//
 function getArticles() {
-
     const filterButtonElement = document.createElement('li');
     filterButtonElement.classList.add('filtre');
     filterButtonElement.innerText = 'Tous';
@@ -46,8 +45,11 @@ function getArticles() {
                 });
             });
     });
+   
+
 };
     
 
 
 getArticles();
+               
