@@ -25,7 +25,7 @@ function getArticles() {
             Array.from(document.querySelectorAll('.filtre')).forEach(element => {
                 //console.log('Dynamic element', element);
                 element.addEventListener('click', (event) => {
-                    event.preventDefault();
+                     event.preventDefault();
                     const categoryId = parseInt(event.target.dataset.id);
                     //console.log('Category id of event', categoryId);
 
@@ -45,7 +45,7 @@ function getArticles() {
                 });
             });
     });
-   
+
 
 };
     
