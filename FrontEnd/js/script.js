@@ -1,10 +1,11 @@
 //recuperer les travaux//
-main ();
 function main () {
     getArticles();
 }
+main ();
 function getArticles () {
     fetch("http://localhost:5678/api/works")
+    
     .then(function(res) {
         return res.json()
     })
@@ -19,7 +20,7 @@ function getArticles () {
             
               const ImgDiv = document.createElement("div");
               figureElement.appendChild(ImgDiv);
-              ImgDiv.classList.add("travaux__img");
+              ImgDiv.classList.add("travaux_img");
 
               const imageElement = document.createElement("img");        
               ImgDiv.appendChild(imageElement);
@@ -33,10 +34,7 @@ function getArticles () {
        
            } }) };
            
- 
-getArticles();
-           
-//changement dans la page visiteur pour l'admin         
+//changement pour mode admin         
 
 let token = localStorage.getItem("token");
 

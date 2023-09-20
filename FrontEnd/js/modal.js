@@ -6,6 +6,7 @@ document.querySelector("#button-second-modal").addEventListener("click", () => {
 document.querySelector("#left-arrow").addEventListener("click", () => {
   document.querySelector("#modal").style.display = "flex";
   document.querySelector("#modal2").style.display = "none";
+  resetForm()
 });
 
 document.querySelector("#close-first-modal").addEventListener("click", () => {
@@ -13,6 +14,7 @@ document.querySelector("#close-first-modal").addEventListener("click", () => {
 });
 
 document.querySelector("#close-second-modal").addEventListener("click", () => {
+  resetForm()
   document.querySelector("#modal2").style.display = "none";
 });
 
@@ -77,3 +79,78 @@ function getModalArticles() {
 
 getModalArticles();
 console.log(localStorage.getItem('token'))
+
+
+// document.querySelector("#ajou_ter").addEventListener("click", () => {
+//   document.querySelector("#image_input").style.display = "flex";
+// });
+
+document.querySelector("#image_input").addEventListener("change", (event) => {
+
+  const image = document.createElement('img');
+  image.src = URL.createObjectURL(event.target.files[0]);
+  image.alt = 'fichier temporaire du formulaire';
+  document.querySelector("#telecharger-photo").style.display = "flex";
+  document.querySelector("#telecharger-photo").appendChild(image);
+  document.querySelector(".photo").style.display = "none";
+  document.querySelector("#ajou_ter").style.display = "none";
+  document.querySelector("#modal_ajoute_content > p").style.display = "none";
+
+});
+
+const formWork = document.querySelector('#form-work');
+
+const postWork = async(data) => {
+  return await fetch('http://localhost:5678/api/works', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    },
+    body: data
+  })
+}
+
+const resetForm = () => {
+  formWork.reset()
+  document.querySelector("#telecharger-photo").style.display = "none";
+  if (document.querySelector("#telecharger-photo > img")) {
+
+    document.querySelector("#telecharger-photo > img").remove()
+  }
+  document.querySelector(".photo").style.display = "block";
+  document.querySelector("#ajou_ter").style.display = "block";
+  document.querySelector("#modal_ajoute_content > p").style.display = "block";
+}
+
+formWork.addEventListener('change', () => {
+  const imgValue = document.querySelector("#image_input").files.length
+  const titleValue = document.querySelector("#title_input").value
+const categoryValue = document.querySelector("#Catégorie").value
+
+  if (imgValue > 0 && titleValue !== '' && categoryValue !== '') {
+    document.querySelector('#button_valider').removeAttribute('disabled')
+   document.querySelector('#button_valider').classList.add('active')
+  } else {
+    document.querySelector('#button_valider').setAttribute('disabled', '')
+    document.querySelector('#button_valider').classList.remove('active')
+  }
+})
+
+formWork.addEventListener('submit', async (event) => {
+  event.preventDefault()
+  const data = new FormData(formWork)
+
+  const response = await postWork(data)
+  console.log(response);
+
+  if (response.status === 201) {
+    document.querySelector(".gallery").innerHTML = ""
+    document.querySelector("#gallerie_modal").innerHTML = ""
+    getArticles()
+    getModalArticles()
+    resetForm()
+    document.querySelector("#modal").style.display = "flex";
+    document.querySelector("#modal2").style.display = "none";
+  }
+
+})
