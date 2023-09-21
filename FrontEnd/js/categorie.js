@@ -50,7 +50,6 @@ function getArticles() {
 };
     
 
-
 getArticles();
 if (localStorage.getItem("token")){
     document.querySelector(".categorie").style.display = "none";

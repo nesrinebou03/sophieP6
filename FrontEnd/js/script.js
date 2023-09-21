@@ -1,4 +1,4 @@
-//recuperer les travaux//
+//récuperer les travaux//
 function main () {
     getArticles();
 }
@@ -45,11 +45,9 @@ const logout = () => {
 
 if (localStorage.getItem("token")) {
   let tableauId = [];
-  document.getElementById("login").innerText = "logout";
-  document.getElementById("modifier").style.backgroundColor= "black";
+  document.querySelector(".login").innerText = "logout";
   document.querySelector('.admin-panel').style.display = 'flex';
-
-  document.getElementById("login").addEventListener('click', (e) => {
+  document.querySelector(".login").addEventListener('click', (e) => {
     e.preventDefault()
     logout()
   })
@@ -78,7 +76,7 @@ document.querySelector('#button-first-modal').addEventListener('click', (e) => {
   document.querySelector('#modal').style.display = 'flex';
 })
 } else {
-  document.getElementById("login").innerText = "login";
+  document.querySelector(".login").innerText = "login";
   document.getElementById("modifier").style.display= "none";
   document.querySelector('.admin-panel').style.display = 'none';
 };

@@ -81,10 +81,6 @@ getModalArticles();
 console.log(localStorage.getItem('token'))
 
 
-// document.querySelector("#ajou_ter").addEventListener("click", () => {
-//   document.querySelector("#image_input").style.display = "flex";
-// });
-
 document.querySelector("#image_input").addEventListener("change", (event) => {
 
   const image = document.createElement('img');

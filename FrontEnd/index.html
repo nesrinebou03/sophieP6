@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Sophie Bluel - Architecte d'intérieur</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet">
     <script
       src="https://kit.fontawesome.com/f266b52627.js"
       crossorigin="anonymous"
     ></script>
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="./assets/style.css" />
+    <meta name="description" content="" >
+    <link rel="stylesheet" href="./assets/style.css">
   </head>
   <body>
+    <!--mode admine-->
     <div class="admin-panel">
       <p class="modf">
         <i class="fa-regular fa-pen-to-square"></i> Mode édition
       </p>
       <button type="button">Publier les changements</button>
     </div>
+
     <header>
       <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
       <nav>
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <a href="login.html"><li id="login">login</li> </a>
-          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
+          <li> <a href="login.html" class="login">login</a></li>
+          <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
         </ul>
       </nav>
     </header>
+
     <main>
-      <section id="introduction">
+      <!--introduction-->
+      <div id="introduction">
         <figure id="introduction_photo">
-          <img src="./assets/images/sophie-bluel.png" alt="" />
+          <img src="./assets/images/sophie-bluel.png" alt="">
         </figure>
         <article id="introduction_article">
           <h2>Designer d'espace</h2>
@@ -58,48 +61,48 @@
             : architecte DPLG, décorateur(trice)
           </p>
         </article>
-      </section>
+      </div>
+
       <!--categorie-->
       <section id="portfolio">
-        <div class="titre_portfolio">
         <h2 id="travaux">Mes Projets</h2>
-      </div>
         <ul class="categorie"></ul>
         <div class="gallery"></div>
       </section>
+
       <!--formule-->
       <section id="contact">
         <h2>Contact</h2>
         <p>Vous avez un projet ? Discutons-en !</p>
         <form action="#" method="post">
           <label for="name">Nom</label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email">
           <label for="message">Message</label>
           <textarea name="message" id="message" cols="30" rows="10"></textarea>
-          <input type="submit" value="Envoyer" />
+          <input type="submit" value="Envoyer">
         </form>
       </section>
+  
     </main>
-    <div id="modifier"></div>
-    <!--la modale -->
+
+    <!--la 1ere modale -->
     <aside
       id="modal"
       class="modal-overlay"
       aria-hidden="true"
       style="display: none"
-    >
+      >
       <div class="modal-content">
         <button type="button" id="close-first-modal" class="close">X</button>
         <h2>Gallerie photo</h2>
         <div id="gallerie_modal"></div>
-
-        <modal class="footer">
+        <div class="footer">
           <button type="button" id="button-second-modal">
             Ajouter une photo
           </button>
-        </modal>
+        </div>
       </div>
     </aside>
     <!--modal ajoute-->
@@ -121,8 +124,7 @@
                 <img
                   class="photo"
                   src="./assets/images/photo.png"
-                  alt="image"
-                />
+                  alt="image">
                 <label for="image_input" id="ajou_ter" class="ajouter_img"
                   ><span class="txt_ajouter">+ Ajouter photo</span></label
                 >
@@ -133,19 +135,19 @@
                   accept="image/png , image/jpg  "
                   class="button_input_image"
                   style="display: none"
-                />
+                >
                 <p>jpg, png : 4mo max</p>
               </div>
             </div>
           
             <div class="input_classement">
               <label>Titre</label>
-              <input name="title" type="text" id="title_input" class="title_input" />
+              <input name="title" type="text" id="title_input" class="title_input">
             </div>
             <div class="input_classement">
-              <label>Catégorie</label>
+                <label>Catégorie</label>
               <select name="category" id="Catégorie" class="catégorie_choix">
-                <option value=""></option>
+                <option value=""> &ensp;</option>
                 <option value="1">Objets</option>
                 <option value="2">Appartements</option>
                 <option value="3">Hotels & restaurants</option>
@@ -160,7 +162,7 @@
         </form>
       </div>
     </aside>
-
+    
     <footer>
       <nav>
         <ul>
