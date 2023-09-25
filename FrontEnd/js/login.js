@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     try {
       await fetch(url, {
         method: "POST",
-        headers: {
+         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(User),

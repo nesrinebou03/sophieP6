@@ -17,7 +17,8 @@ document.querySelector("#close-second-modal").addEventListener("click", () => {
   resetForm()
   document.querySelector("#modal2").style.display = "none";
 });
-
+ 
+//autorisation de supprimer les travaux
 async function deleteWork (id) {
     return await fetch('http://localhost:5678/api/works/' + id, {
         method: 'DELETE',
@@ -26,7 +27,7 @@ async function deleteWork (id) {
         }
     })
 }
- 
+ //recuperer les travaux dans la modale 1
 function getModalArticles() {
   fetch("http://localhost:5678/api/works")
     .then(function (res) {
@@ -49,12 +50,12 @@ function getModalArticles() {
         ImgDiv.appendChild(imageElement);
         imageElement.src = resultatAPI[article].imageUrl;
         imageElement.alt = "Photo de " + resultatAPI[article].title;
-
+//
         const imageFigcaption = document.createElement("figcaption");
         figureElement.appendChild(imageFigcaption);
         imageFigcaption.classList.add("title_img");
         imageFigcaption.innerHTML = "éditer";
-
+//ajouter l'icon de supprimer (trash)
         const trashElement = document.createElement('img')
         trashElement.src = './assets/icons/trash.svg';
         trashElement.classList.add('trash');
@@ -80,6 +81,7 @@ function getModalArticles() {
 getModalArticles();
 console.log(localStorage.getItem('token'))
 
+//ajouter une image (btn ajouter une image sur la 2eme modal)
 
 document.querySelector("#image_input").addEventListener("change", (event) => {
 
@@ -96,6 +98,7 @@ document.querySelector("#image_input").addEventListener("change", (event) => {
 
 const formWork = document.querySelector('#form-work');
 
+//autorisation pour transmettre nouvelle image et l'afficher
 const postWork = async(data) => {
   return await fetch('http://localhost:5678/api/works', {
     method: 'POST',
@@ -105,7 +108,7 @@ const postWork = async(data) => {
     body: data
   })
 }
-
+//reset ce cadre de telecharger photo comme avant le telechargement
 const resetForm = () => {
   formWork.reset()
   document.querySelector("#telecharger-photo").style.display = "none";
@@ -117,7 +120,7 @@ const resetForm = () => {
   document.querySelector("#ajou_ter").style.display = "block";
   document.querySelector("#modal_ajoute_content > p").style.display = "block";
 }
-
+//il faut remplir les 3 conditions pour valider 
 formWork.addEventListener('change', () => {
   const imgValue = document.querySelector("#image_input").files.length
   const titleValue = document.querySelector("#title_input").value
@@ -131,7 +134,7 @@ const categoryValue = document.querySelector("#Catégorie").value
     document.querySelector('#button_valider').classList.remove('active')
   }
 })
-
+//l'envoi sur la 1er modal et page vstr apres la creation de travaux et la validation
 formWork.addEventListener('submit', async (event) => {
   event.preventDefault()
   const data = new FormData(formWork)

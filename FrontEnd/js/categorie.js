@@ -1,12 +1,5 @@
 //filtrer les travaux//
 function getArticles() {
-    const filterButtonElement = document.createElement('li');
-    filterButtonElement.classList.add('filtre');
-    filterButtonElement.innerText = 'Tous';
-    filterButtonElement.dataset.id = 0;
-    //console.log('Filter button', filterButtonElement);
-    document.querySelector('.categorie').appendChild(filterButtonElement);
-
     fetch("http://localhost:5678/api/categories")
     .then(function(res) {
         return res.json()
@@ -45,7 +38,12 @@ function getArticles() {
                 });
             });
     });
-
+const filterButtonElement = document.createElement('li');
+    filterButtonElement.classList.add('filtre');
+    filterButtonElement.innerText = 'Tous';
+    filterButtonElement.dataset.id = 0;
+    //console.log('Filter button', filterButtonElement);
+    document.querySelector('.categorie').appendChild(filterButtonElement);
 
 };
     
